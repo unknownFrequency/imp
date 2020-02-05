@@ -80,10 +80,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   todays_good: {
+    padding: 10,
+    margin: 10,
     backgroundColor: 'green',
+    width: '100%',
+    borderWidth: 2,
   },
   todays_bad: {
+    padding: 10,
+    margin: 10,
     backgroundColor: 'lightblue',
+    width: '75%',
+    borderWidth: 2,
   },
   longterm_todos: {
     flex: 1,  
