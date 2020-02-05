@@ -1,53 +1,62 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  FlatList, 
+  TouchableOpacity
+} from 'react-native';
 
-export default function App(props) {
-  const [todos, setTodos] = useState([
-    { text: 'Buy coffee', id: '1'},
-    { text: 'Create ImproveMe App', id: '2'},
-    { text: 'Chop Chop', id: '3'}
-  ]);
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      WelcomeMessage: "Welcome To Improve Me"
+    }
+  }
 
-  const {
-    WelcomeMessage
-  } = props;
+render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.welcome_message}>
+            &#9734;&#9734;&#9734;&#9734;&#9734;&nbsp;&nbsp;
+              {this.state.WelcomeMessage}
+            &nbsp;&nbsp;&#9734;&#9734;&#9734;&#9734;&#9734;
+          </Text>
+        </View>
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>{WelcomeMessage}</Text>
-      </View>
+        <View style={styles.todays_todos}>
+          <Text>Todays Todo's</Text>
 
-      <View style={styles.todays_todos}>
-        <Text>Todays Todo's</Text>
-
-        <Text>* Mood Chart :)</Text>
-        <Text>* Diary</Text>
-        <View style={styles.todays_actions}>
-          <View style={styles.todays_good}>
-            <Text>What I did good :) </Text>
-          </View>
-          <View style={styles.todays_bad}>
-            <Text>What I did bad &nbsp; :( </Text>
+          <Text>* Mood Chart :)</Text>
+          <Text>* Diary</Text>
+          <View style={styles.todays_actions}>
+            <View style={styles.todays_good}>
+              <TouchableOpacity>
+                <Text>What I did good button > </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.todays_bad}>
+              <TouchableOpacity>
+                <Text>What I did bad &nbsp; button  > </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
 
-      <View style={styles.longterm_todos}>
-        <Text>Longterm Goals</Text>
-      </View>
+        <View style={styles.longterm_todos}>
+          <Text>Longterm Goals</Text>
+        </View>
 
-      <View style={styles.social}>
-        <Text>Social</Text>
+        <View style={styles.social}>
+          <Text>Social</Text>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
-
-App.defaultProps = {
-  WelcomeMessage: 'I Will Improve!'
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +67,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'darkblue',
     alignItems: 'center',
     justifyContent: 'center',
+    color: '#000',
+  },
+  welcome_message: {
+    color: '#fff',
+    fontSize: 20
   },
   todays_todos: {
     flex: 1,  
