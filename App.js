@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import PropTypes from 'prop-types';
 
-export default function App() {
+export default function App(props) {
   const [todos, setTodos] = useState([
     { text: 'Buy coffee', id: '1'},
     { text: 'Create ImproveMe App', id: '2'},
     { text: 'Chop Chop', id: '3'}
   ]);
 
+  const {
+    WelcomeMessage
+  } = props;
+
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>{WelcomeMessage}</Text>
+      </View>
+
       <View style={styles.todays_todos}>
         <Text>Todays Todo's</Text>
+
         <Text>* Mood Chart :)</Text>
         <Text>* Diary</Text>
         <View style={styles.todays_actions}>
           <View style={styles.todays_good}>
-            <Text>What I did good</Text>
+            <Text>What I did good :) </Text>
           </View>
           <View style={styles.todays_bad}>
-            <Text>What I did bad</Text>
+            <Text>What I did bad &nbsp; :( </Text>
           </View>
         </View>
       </View>
@@ -35,9 +45,19 @@ export default function App() {
   );
 }
 
+App.defaultProps = {
+  WelcomeMessage: 'I Will Improve!'
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    flex: .3,  
+    backgroundColor: 'darkblue',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   todays_todos: {
     flex: 1,  
