@@ -58,6 +58,31 @@ render() {
   }
 }
 
+const Button = (props) => {
+  const {
+    buttonType,
+    onButtonPress,
+    buttonText,
+    buttonSize,
+    customButtonStyle,
+    buttonBackground 
+  } = props;
+
+  return (
+    <TouchableOpacity>
+      <Text>Button Text</Text>
+    </TouchableOpacity>
+  )
+};
+
+Button.proptypes = {
+  buttonType: PropTypes.number.isRequired,
+  onButtonPress: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonSize: PropTypes.object.isRequired,
+  customButtonStyle: PropTypes.object
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
