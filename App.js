@@ -9,14 +9,27 @@ import {
 } from 'react-native';
 import Button from './src/components/Button';
 import globals from './src/lib/globals';
+import MyModal from './src/components/MyModal';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      WelcomeMessage: "Welcome To Improve Me"
+type Props = {};
+
+export default class App extends Component<Props> {
+  state = {
+    visibility: false
+  };
+
+  title = '';
+  message = '';
+
+  setModalConfirmation = () => {
+    this.setState({visibility: !this.state.visibility});
+
+    if(globals.BUTTON_TYPE.confirmation) {
+      this.title = 'Are you sure?';
+      this.message = 'There is no going back!';
     }
-  }
+  };
+
 
   render() {
     return (
@@ -25,7 +38,6 @@ export default class App extends Component {
           <View style={styles.header}>
             <Text style={styles.welcome_message}>
               &#9734;&#9734;&#9734;&#9734;&#9734;&nbsp;&nbsp;
-              {this.state.WelcomeMessage}
               &nbsp;&nbsp;&#9734;&#9734;&#9734;&#9734;&#9734;
             </Text>
           </View>
@@ -53,10 +65,18 @@ export default class App extends Component {
           <View style={styles.social}>
             <Button
                 buttonType={globals.BUTTON_TYPE.confirmation}
-                onButtonPress={console.log('Button Pressed OK?')}
+                onButtonPress={this.setModalConfirmation}
                 buttonTitle={globals.BUTTON_TITLE.confirmation}
                 buttonSize={{width: '45%', height: '45%'}}
                 customButtonStyle={{marginTop: 10, borderRadius: 50}}
+            />
+            <MyModal
+              modalType={globals.MODAL_TYPE.confirmation}
+              title={this.title}
+              message={this.message}
+              buttonTitle={globals.MODAL_BUTTON_TEXT.okay}
+              visibility={true}
+              setModalVisible={this.setModalConfirmation}
             />
           </View>
         </View>

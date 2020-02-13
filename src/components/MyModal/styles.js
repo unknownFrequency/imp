@@ -43,8 +43,8 @@ export const styles = StyleSheet.create({
         textAlign: 'center'
     },
     confirmationButton: {
-        borderButtonLeftRadius: 15,
-        borderButtonRightRadius: 15
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15
     },
     inputButton: {
         width: '100%',
@@ -55,8 +55,8 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: globals.COLORS.blue,
-        borderButtonLeftRadius: 15,
-        borderButtonRightRadius: 15,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
         alignItems: 'center',
         justifyContent: 'center'
     },

@@ -22,7 +22,7 @@ module.exports = {
   },
   MODAL_BUTTON_TEXT: {
     okay: 'OKAY',
-    yes: 'Yes',
-    no: 'No'
+    yes: 'YES',
+    no: 'NO'
   },
 }
