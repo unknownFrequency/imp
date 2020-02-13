@@ -7,7 +7,8 @@ module.exports = {
   COLORS: {
     blue: '#3b5998',
     lightBlue: '#9daccb',
-    white: '#fff'
+    white: '#fff',
+    darkGrey: '#4e4e56'
   },
   BUTTON_TYPE: {
     confirmation: 1,
